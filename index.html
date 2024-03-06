@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #f0f8ff; /* Light Blue */
+      }
+
+      h1 {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      #myForm {
+        max-width: 1100px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border: 2px solid #ffa07a; /* Light Salmon */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .col {
+        flex: 1;
+        padding: 10px;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50; /* Green */
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Party-Form</h1>
+    <form id="myForm">
+      <div class="row">
+        <div class="col">
+          <label for="invoice_number">Invoice Number *</label>
+          <input
+            type="text"
+            id="invoice_number"
+            name="invoice_number"
+            placeholder="Enter"
+          />
+        </div>
+        <div class="col">
+          <label for="invoice_status">Invoice Status *</label>
+          <select id="invoice_status" name="invoice_status">
+            <option value="Active">Active</option>
+            <option value="Not Active">Not Active</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="party_name">Enter Party Name*</label>
+          <select id="party_name" name="party_name">
+            <option value="Party1">Party 1</option>
+            <option value="Party2">Party 2</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="city">Enter City</label>
+          <input type="text" id="city" name="city" placeholder="Enter City" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="invoice_file">Enter Invoice File *</label>
+          <input type="file" id="invoice_file" name="invoice_file" />
+        </div>
+        <div class="col">
+          <label for="invoice_date">Enter Invoice Date</label>
+          <input type="date" id="invoice_date" name="invoice_date" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="invoice_amount">Enter Invoice Amount</label>
+          <input
+            type="text"
+            id="invoice_amount"
+            name="invoice_amount"
+            placeholder="Enter Amount"
+          />
+        </div>
+        <div class="col">
+          <label for="e_voice">Enter E-Voice **</label>
+          <input type="file" id="e_voice" name="e_voice" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="gr">Enter G.R **</label>
+          <input type="file" id="gr" name="gr" />
+        </div>
+        <div class="col">
+          <label for="kanta_slip">Enter Kanta slip</label>
+          <input
+            type="file"
+            id="kanta_slip"
+            name="kanta_slip"
+            placeholder="Enter Kanta slip"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="receiving_slip">Enter Receiving Slip</label>
+          <input
+            type="file"
+            id="receiving_slip"
+            name="receiving_slip"
+            placeholder="Enter Receiving Slip"
+          />
+        </div>
+        <div class="col">
+          <label for="test_report">Enter Test Report</label>
+          <input
+            type="file"
+            id="test_report"
+            name="test_report"
+            placeholder="Enter Test Report"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="financial_year">Enter Financial Year *</label>
+          <select id="financial_year" name="financial_year">
+            <option value="2022-2023">2022-2023</option>
+            <option value="2023-2024">2023-2024</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("myForm");
+      const data = {
+        invoice_number: "",
+        invoice_status: "Active",
+        // Add more data objects for other fields
+      };
+
+      // Fill form fields with data
+      for (const field in data) {
+        document.getElementById(field).value = data[field];
+      }
+
+      form.addEventListener("submit", function (event) )
+        event.preventDefault(); // Prevent default form submission
+
+        const invoiceNumber = document.getElementById("invoice_number").value;
+        const invoiceStatus = document.getElementById("invoice_status").value;
+
+        alert(
+          `Invoice Number: ${invoiceNumber}\nInvoice Status: ${invoiceStatus}`
+        );
+    </script>
+  </body>
+</html>
